@@ -242,7 +242,7 @@
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
-                                                <img src="" id="img"
+                                                <img id="img" src="{{ isset($sub['Assets']['data'][0]['links']['thumb'])? $sub['Assets']['data'][0]['links']['thumb']: asset('frontend/img/no-image.gif') }}"
                                                     alt="Vegetables" width="270" height="270" class="product-thumnail">
                                             </a>
                                             <a class="lookup btn_call_quickview" href="#"><i
@@ -2954,9 +2954,7 @@
                                         imageUrl = links.thumb;
                                     }
                                     console.log('imageUrl', imageUrl);
-                                    var src = document.getElementById("img");
-src.append(imageUrl);
-                                    // $('#img').append(imageUrl);
+                                    $('#img').append(imageUrl);
                                 });
 
 
