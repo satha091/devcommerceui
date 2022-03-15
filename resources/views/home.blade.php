@@ -218,17 +218,18 @@
                         <div class="tab-content">
                             <div id="tab01_1st" class="tab-contain active">
                                 <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":25 }},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
+                                    @foreach($product as $sub)
                                     <li class="product-item">
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
                                                 <a href="#" class="link-to-product">
-                                                    <img src="assets/images/products/p-05.jpg" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                                    <img src="{{ isset($sub['Assets']['data'][0]['links']['thumb']) ? $sub['Assets']['data'][0]['links']['thumb'] : asset('frontend/img/no-image.gif')  }}" alt="Vegetables" width="270" height="270" class="product-thumnail">
                                                 </a>
                                                 <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
                                             </div>
                                             <div class="info">
-                                                <b class="categories">Vegetables</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name">Organic Hass Avocado, Large</a></h4>
+                                                {{-- <b class="categories">Vegetables</b> --}}
+                                                <h4 class="product-title"><a href="#" class="pr-name">{{$sub['title']}}</a></h4>
                                                 <div class="price ">
                                                     <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
                                                     <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
@@ -244,6 +245,7 @@
                                             </div>
                                         </div>
                                     </li>
+                                    @endforeach
                                     <li class="product-item">
                                         <div class="contain-product layout-default">
                                             <div class="product-thumb">
@@ -2273,9 +2275,9 @@
                     </div>
                 </div>
             </div>
-       
 
 
 
-  
+
+
 @endsection
