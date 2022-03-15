@@ -197,11 +197,13 @@
                     </div>
                     <div class="biolife-tab biolife-tab-contain sm-margin-top-34px">
                         <div class="tab-head tab-head__icon-top-layout icon-top-layout">
-                            <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im">
-                                <li class="tab-element active">
-                                    <a href="#tab01_1st" class="tab-link"><span class="biolife-icon icon-lemon"></span>Oranges</a>
+                            <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im" style="overflow-x:scroll">
+                                @foreach($product as $sub)
+                                <li class="tab-element active" >
+                                    <a href="#allcategory" id="allcategory" onclick="category(this)" class="tab-link"><span class="biolife-icon icon-lemon"></span>{{$sub['title']}}</a>
                                 </li>
-                                <li class="tab-element" >
+                                @endforeach
+                                {{-- <li class="tab-element" >
                                     <a href="#tab01_2nd" class="tab-link"><span class="biolife-icon icon-grape2"></span>Grapes</a>
                                 </li>
                                 <li class="tab-element" >
@@ -212,7 +214,7 @@
                                 </li>
                                 <li class="tab-element" >
                                     <a href="#tab01_5th" class="tab-link"><span class="biolife-icon icon-broccoli"></span>Vegetables</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -2277,7 +2279,11 @@
             </div>
 
 
-
+<script>
+      function category(val) {
+console.log(val);
+      }
+</script>
 
 
 @endsection

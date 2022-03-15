@@ -16,7 +16,7 @@ class HomeController extends Controller
             $response =  Http::withHeaders([
                 'Accept' => 'application/vnd.api.v1+json',
                 'Content-Type' => 'application/json'
-            ])->get(config('global.url') . '/api/member/prodCat');
+            ])->get(config('global.url') . '/api/member/prodCat?include=SubCategories');
         } catch (\Exception $e) {     }
 
         $product = $response['data'];
