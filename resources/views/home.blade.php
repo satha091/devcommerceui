@@ -200,7 +200,7 @@
                             <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im" style="overflow-x:scroll">
                                 @foreach($product as $sub)
                                 <li class="tab-element active" >
-                                    <a href="#allcategory" id="allcategory" onclick="category(this)" class="tab-link"><span class="biolife-icon icon-lemon"></span>{{$sub['title']}}</a>
+                                    <a href="#allcategory" id="allcategory" onclick="category(this.id)" class="tab-link"><span class="biolife-icon icon-lemon"></span>{{$sub['title']}}</a>
                                 </li>
                                 @endforeach
                                 {{-- <li class="tab-element" >
@@ -2280,8 +2280,9 @@
 
 
 <script>
-      function category(val) {
-console.log(val);
+      function category(id) {
+        //   alert("hii");
+console.log(cat);
       }
 </script>
 
