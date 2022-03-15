@@ -34,6 +34,24 @@ class HomeController extends Controller
 
 
     }
+    public function getsubcat($id)
+    {
+        //    return $prope_id;
+        $session = session()->get('token');
+        try {
+            $response =  Http::withHeaders([
+                'Accept' => 'application/vnd.api.v1+json',
+                'Content-Type' => 'application/json'
+            ])->get(config('global.url') . 'api/member/prodCat/'.$id.'?include=SubCategories');
+        } catch (\Exception $e) {     }
+
+        $prodsubcategories = $response['data'];
+
+        if ($response->ok()) {
+
+            return $prodsubcategories;
+        }
+    }
 
     public function show($id,$page = 1)
     {

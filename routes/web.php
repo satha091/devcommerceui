@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', 'HomeController@index');
 Route::get('/login', 'LoginController@index');
+Route::get('getsubcat/{id}','HomeController@getsubcat')->name('getsubcat.ajax');
