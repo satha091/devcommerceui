@@ -22,6 +22,7 @@ class HomeController extends Controller
         $product = $response['data'];
         // return $product;
 
+
         $pagination = $response['meta']['pagination'];
         $lastpage = $pagination['total_pages'];
         return view(
