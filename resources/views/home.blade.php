@@ -2931,7 +2931,7 @@ li{
                                     // ' <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>');
 
 $('.image').append('    <li class="product-item col-md-4 "> <div class="contain-product layout-default"> <div class="product-thumb " id="image">'+
-                                           ' <a href="#" class="link-to-product" >'+
+                                           ' <a href="#" onclick="itemvariant('+subcategoryItem.id+')" class="link-to-product" >'+
                                                '+ <img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail">'+
                                            ' </a>'+
                                            ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>'+
@@ -2971,6 +2971,14 @@ $('.image').append('    <li class="product-item col-md-4 "> <div class="contain-
 
 
                     }
+                }
+
+
+                function itemvariant(subid) {
+console.log(subid);
+window.location = '/product/' + subid;
+// window.location = '/product';
+
                 }
             </script>
         @endsection

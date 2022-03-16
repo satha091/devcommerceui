@@ -39,7 +39,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
-                        <a href="{{url('/')}}" class="biolife-logo"><img src="assets/images/organic-3.png" alt="biolife logo" width="135" height="34"></a>
+                        <a href="{{url('/')}}" class="biolife-logo"><img src="{{url('assets/images/organic-3.png')}}" alt="biolife logo" width="135" height="34"></a>
                     </div>
                     <div class="col-lg-6 col-md-7 hidden-sm hidden-xs">
                         <div class="primary-menu">
@@ -234,7 +234,7 @@
                                                 <ul class="posts">
                                                     <li>
                                                         <div class="block-post-item">
-                                                            <div class="thumb"><a href="#"><img src="assets/images/megamenu/thumb-05.jpg" width="100" height="73" alt=""></a></div>
+                                                            <div class="thumb"><a href="#"><img src="{{url('assets/images/megamenu/thumb-05.jpg')}}" width="100" height="73" alt=""></a></div>
                                                             <div class="left-info">
                                                                 <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
                                                                 <span class="p-date">Jan 05, 2019</span>
@@ -244,7 +244,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="block-post-item">
-                                                            <div class="thumb"><a href="#"><img src="assets/images/megamenu/thumb-06.jpg" width="100" height="73" alt=""></a></div>
+                                                            <div class="thumb"><a href="#"><img src="{{url('assets/images/megamenu/thumb-06.jpg')}}" width="100" height="73" alt=""></a></div>
                                                             <div class="left-info">
                                                                 <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
                                                                 <span class="p-date">May 15, 2019</span>
@@ -254,7 +254,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="block-post-item">
-                                                            <div class="thumb"><a href="#"><img src="assets/images/megamenu/thumb-07.jpg" width="100" height="73" alt=""></a></div>
+                                                            <div class="thumb"><a href="#"><img src="{{url('assets/images/megamenu/thumb-07.jpg')}}" width="100" height="73" alt=""></a></div>
                                                             <div class="left-info">
                                                                 <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
                                                                 <span class="p-date">Apr 26, 2019</span>
@@ -320,7 +320,7 @@
                                                 <li>
                                                     <div class="minicart-item">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/minicart/pr-01.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                            <a href="#"><img src="{{url('assets/images/minicart/pr-01.jpg')}}" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
                                                             <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
@@ -342,7 +342,7 @@
                                                 <li>
                                                     <div class="minicart-item">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/minicart/pr-02.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                            <a href="#"><img src="{{url('assets/images/minicart/pr-02.jpg')}}" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
                                                             <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
@@ -364,7 +364,7 @@
                                                 <li>
                                                     <div class="minicart-item">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/minicart/pr-03.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                            <a href="#"><img src="{{url('assets/images/minicart/pr-03.jpg')}}" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
                                                             <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
@@ -386,7 +386,7 @@
                                                 <li>
                                                     <div class="minicart-item">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/minicart/pr-04.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                            <a href="#"><img src="{{url('assets/images/minicart/pr-04.jpg')}}" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
                                                             <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
@@ -408,7 +408,7 @@
                                                 <li>
                                                     <div class="minicart-item">
                                                         <div class="thumb">
-                                                            <a href="#"><img src="assets/images/minicart/pr-05.jpg" width="90" height="90" alt="National Fresh"></a>
+                                                            <a href="#"><img src="{{url('assets/images/minicart/pr-05.jpg')}}" width="90" height="90" alt="National Fresh"></a>
                                                         </div>
                                                         <div class="left-info">
                                                             <div class="product-title"><a href="#" class="product-name">National Fresh Fruit</a></div>
@@ -509,7 +509,7 @@
                                                                     <div class="contain-product none-overlay">
                                                                         <div class="product-thumb">
                                                                             <a href="#" class="link-to-product">
-                                                                                <img src="assets/images/products/p-08.jpg" alt="dd" width="270" height="270" class="product-thumnail">
+                                                                                <img src="{{url('assets/images/products/p-08.jpg')}}" alt="dd" width="270" height="270" class="product-thumnail">
                                                                             </a>
                                                                         </div>
                                                                         <div class="info">
@@ -526,7 +526,7 @@
                                                                     <div class="contain-product none-overlay">
                                                                         <div class="product-thumb">
                                                                             <a href="#" class="link-to-product">
-                                                                                <img src="assets/images/products/p-11.jpg" alt="dd" width="270" height="270" class="product-thumnail">
+                                                                                <img src="{{url('assets/images/products/p-11.jpg')}}" alt="dd" width="270" height="270" class="product-thumnail">
                                                                             </a>
                                                                         </div>
                                                                         <div class="info">
@@ -564,10 +564,10 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12 md-margin-top-9">
                                                         <div class="biolife-brand" >
                                                             <ul class="brands">
-                                                                <li><a href="#"><img src="assets/images/megamenu/brand-organic.png" width="161" height="136" alt="organic"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/brand-explore.png" width="160" height="136" alt="explore"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/brand-organic-2.png" width="99" height="136" alt="organic 2"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/brand-eco-teas.png" width="164"  height="136" alt="eco teas"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/brand-organic.png')}}" width="161" height="136" alt="organic"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/brand-explore.png')}}" width="160" height="136" alt="explore"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/brand-organic-2.png')}}" width="99" height="136" alt="organic 2"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/brand-eco-teas.png')}}" width="164"  height="136" alt="eco teas"></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -616,10 +616,10 @@
                                                         <div class="biolife-brand vertical md-boder-left-30">
                                                             <h4 class="menu-title">Hot Brand</h4>
                                                             <ul class="brands">
-                                                                <li><a href="#"><img src="assets/images/megamenu/v-brand-organic.png" width="167" height="74" alt="organic"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/v-brand-explore.png" width="167" height="72" alt="explore"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/v-brand-organic-2.png" width="167" height="99" alt="organic 2"></a></li>
-                                                                <li><a href="#"><img src="assets/images/megamenu/v-brand-eco-teas.png" width="167" height="67" alt="eco teas"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/v-brand-organic.png')}}" width="167" height="74" alt="organic"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/v-brand-explore.png')}}" width="167" height="72" alt="explore"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/v-brand-organic-2.png')}}" width="167" height="99" alt="organic 2"></a></li>
+                                                                <li><a href="#"><img src="{{url('assets/images/megamenu/v-brand-eco-teas.png')}}" width="167" height="67" alt="eco teas"></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>

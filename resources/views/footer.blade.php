@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-9">
                         <section class="footer-item">
-                            <a href="index-2.html" class="logo footer-logo"><img src="assets/images/organic-3.png" alt="biolife logo" width="135" height="34"></a>
+                            <a href="index-2.html" class="logo footer-logo"><img src="{{url('assets/images/organic-3.png')}}" alt="biolife logo" width="135" height="34"></a>
                             <div class="footer-phone-info">
                                 <i class="biolife-icon icon-head-phone"></i>
                                 <p class="r-info">
@@ -108,11 +108,11 @@
                     <div class="col-lg-6 col-sm-6 col-xs-12">
                         <div class="payment-methods">
                             <ul>
-                                <li><a href="#" class="payment-link"><img src="assets/images/card1.jpg" width="51" height="36" alt=""></a></li>
-                                <li><a href="#" class="payment-link"><img src="assets/images/card2.jpg" width="51" height="36" alt=""></a></li>
-                                <li><a href="#" class="payment-link"><img src="assets/images/card3.jpg" width="51" height="36" alt=""></a></li>
-                                <li><a href="#" class="payment-link"><img src="assets/images/card4.jpg" width="51" height="36" alt=""></a></li>
-                                <li><a href="#" class="payment-link"><img src="assets/images/card5.jpg" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="{{url('assets/images/card1.jpg')}}" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="{{url('assets/images/card2.jpg')}}" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="{{url('assets/images/card3.jpg')}}" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="{{url('assets/images/card4.jpg')}}" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="{{url('assets/images/card5.jpg')}}" width="51" height="36" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -178,10 +178,10 @@
             <div class="glb-item languages">
                 <b class="title">Language</b>
                 <ul class="list inline">
-                    <li class="list-item"><a href="#"><img src="assets/images/languages/us.jpg" alt="flag" width="24" height="18"></a></li>
-                    <li class="list-item"><a href="#"><img src="assets/images/languages/fr.jpg" alt="flag" width="24" height="18"></a></li>
-                    <li class="list-item"><a href="#"><img src="assets/images/languages/ger.jpg" alt="flag" width="24" height="18"></a></li>
-                    <li class="list-item"><a href="#"><img src="assets/images/languages/jap.jpg" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{{url('assets/images/languages/us.jpg')}}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{{url('assets/images/languages/fr.jpg')}}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{{url('assets/images/languages/ger.jpg')}}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{{url('assets/images/languages/jap.jpg')}}" alt="flag" width="24" height="18"></a></li>
                 </ul>
             </div>
         </div>

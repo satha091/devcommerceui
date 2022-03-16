@@ -82,22 +82,22 @@ class HomeController extends Controller
             $response =  Http::withHeaders([
                 'Accept' => 'application/vnd.api.v1+json',
                 'Content-Type' => 'application/json'
-            ])->get(config('global.url') . 'api/member/prodCat/'.$id.'?include=SubCategories');
+            ])->get(config('global.url') . 'api/member/prodSubCat/'.$id.'?include=Items');
         } catch (\Exception $e) {     }
 
-        $prodsubcategories = $response['data'];
+        $subitem = $response['data']['Items']['data'];
 
-// return $prodsubcategories;
-        try{
-            $response =  Http::withHeaders([
-                'Accept' => 'application/vnd.api.v1+json',
-                'Content-Type' => 'application/json'
-            ])->get(config('global.url') . '/api/member/prodSubCat?include=Items');
+// return $subitem;
+        // try{
+        //     $response =  Http::withHeaders([
+        //         'Accept' => 'application/vnd.api.v1+json',
+        //         'Content-Type' => 'application/json'
+        //     ])->get(config('global.url') . '/api/member/prodSubCat?include=Items');
 
-        }catch (\Exception $e){
-              }
+        // }catch (\Exception $e){
+        //       }
 
-        $item = $response['data'];
+        // $item = $response['data'];
 
      // return $item;
 
@@ -108,7 +108,7 @@ class HomeController extends Controller
 
         return view(
             'product', compact(
-               'item', 'prodcategories','prodsubcategories'
+               'item', 'prodcategories','subitem'
             ));
 
     }
