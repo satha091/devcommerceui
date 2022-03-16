@@ -2,12 +2,12 @@
 @section('content')
     <!-- HEADER -->
 
-<style>
-li{
-    list-style: none;
-}
+    <style>
+        li {
+            list-style: none;
+        }
 
-</style>
+    </style>
 
 
     <!--Block 01: Main slide-->
@@ -2871,8 +2871,13 @@ li{
                 </div>
             </div>
 
-
+            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
             <script>
+
+
+                // $(document).ready(function() {
+                //     category(3);
+                //  });
                 function category(id) {
                     //   alert("hii");
                     // cat nu enga mention panirukenga
@@ -2910,6 +2915,12 @@ li{
 
 
                                 const subcategoryData = order1.SubCategories.data;
+                                if (subcategoryData.length === 0){
+                                    alert('No Data Found');
+                                    $(".image").append('<p style="text-align:center;font-size:25px;color:red">No Data Found</p>');
+                                }
+
+
                                 console.log(subcategoryData);
                                 subcategoryData.forEach(subcategoryItem => {
                                     const {
@@ -2930,38 +2941,42 @@ li{
                                     // $('.image').append('<a href="#" class="link-to-product" ><img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail"></a>'+
                                     // ' <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>');
 
-$('.image').append('    <li class="product-item col-md-4 "> <div class="contain-product layout-default"> <div class="product-thumb " id="image">'+
-                                           ' <a href="#" onclick="itemvariant('+subcategoryItem.id+')" class="link-to-product" >'+
-                                               '+ <img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail">'+
-                                           ' </a>'+
-                                           ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>'+
+                                    $('.image').append(
+                                        '    <li class="product-item col-md-4 "> <div class="contain-product layout-default"> <div class="product-thumb " id="image">' +
+                                        ' <a href="#" onclick="itemvariant(' + subcategoryItem.id +
+                                        ')" class="link-to-product" >' +
+                                        '+ <img id="img" src=' + imageUrl +
+                                        ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
+                                        ' </a>' +
+                                        ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
 
-                                        '</div>'+
-                                       ' <div class="info">'+
+                                        '</div>' +
+                                        ' <div class="info">' +
 
-                                            '<h4 class="product-title"><a href="#"   class="pr-name">'+subcategoryItem.sub_category_desc+'</a></h4>'+
+                                        '<h4 class="product-title"><a href="#"   class="pr-name">' +
+                                        subcategoryItem.sub_category_desc + '</a></h4>' +
 
-                                           ' <div class="price ">'+
-                                               ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>'+
+                                        ' <div class="price ">' +
+                                        ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>' +
 
-                                               ' <del><span class="price-amount"><span  class="currencySymbol">£</span>95.00</span></del>'+
+                                        ' <del><span class="price-amount"><span  class="currencySymbol">£</span>95.00</span></del>' +
 
-                                           ' </div>'+
-                                           ' <div class="slide-down-box">'+
-                                                '<p class="message">All products are carefully selected to ensure  food safety.</p>'+
+                                        ' </div>' +
+                                        ' <div class="slide-down-box">' +
+                                        '<p class="message">All products are carefully selected to ensure  food safety.</p>' +
 
-                                               ' <div class="buttons">'+
-                                                  '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>'+
+                                        ' <div class="buttons">' +
+                                        '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>' +
 
-                                                   ' <a href="#" class="btn add-to-cart-btn"><i    class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to  cart</a>'+
+                                        ' <a href="#" class="btn add-to-cart-btn"><i    class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to  cart</a>' +
 
 
-                                                   ' <a href="#" class="btn compare-btn"><i class="fa fa-random"  aria-hidden="true"></i></a>'+
+                                        ' <a href="#" class="btn compare-btn"><i class="fa fa-random"  aria-hidden="true"></i></a>' +
 
-                                               '</div>'+
-                                            '</div>'+
-                                        '</div>'+
-                                   ' </div></li>');
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        ' </div></li>');
 
                                 });
 
@@ -2975,9 +2990,9 @@ $('.image').append('    <li class="product-item col-md-4 "> <div class="contain-
 
 
                 function itemvariant(subid) {
-console.log(subid);
-window.location = '/product/' + subid;
-// window.location = '/product';
+                    console.log(subid);
+                    window.location = '/product/' + subid;
+                    // window.location = '/product';
 
                 }
             </script>
