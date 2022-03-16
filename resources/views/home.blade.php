@@ -2,7 +2,12 @@
 @section('content')
     <!-- HEADER -->
 
+<style>
+li{
+    list-style: none;
+}
 
+</style>
 
 
     <!--Block 01: Main slide-->
@@ -235,47 +240,14 @@
                 </div>
                 <div class="tab-content">
                     <div id="tab01_1st" class="tab-contain active">
-                        <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
+                        <div class=" row col-md-12 products-list  nav-center-02 nav-none-on-mobile eq-height-contain  image"
                             data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":25 }},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
-                            {{-- @foreach ($product as $sub) --}}
-                                <li class="product-item">
-                                    <div class="contain-product layout-default">
-                                        <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
-                                                <img id="img" src="{{ isset($sub['Assets']['data'][0]['links']['thumb'])? $sub['Assets']['data'][0]['links']['thumb']: asset('frontend/img/no-image.gif') }}"
-                                                    alt="Vegetables" width="270" height="270" class="product-thumnail">
-                                            </a>
-                                            <a class="lookup btn_call_quickview" href="#"><i
-                                                    class="biolife-icon icon-search"></i></a>
-                                        </div>
-                                        <div class="info">
-                                            {{-- <b class="categories">Vegetables</b> --}}
-                                            <h4 class="product-title"><a href="#"
-                                                    class="pr-name">{{ $sub['title'] }}</a></h4>
-                                            <div class="price ">
-                                                <ins><span class="price-amount"><span
-                                                            class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span
-                                                            class="currencySymbol">£</span>95.00</span></del>
-                                            </div>
-                                            <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure
-                                                    food safety.</p>
-                                                <div class="buttons">
-                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"
-                                                            aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i
-                                                            class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to
-                                                        cart</a>
-                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random"
-                                                            aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            {{-- @endforeach --}}
-                            <li class="product-item">
+
+
+
+
+
+                            {{-- <li class="product-item">
                                 <div class="contain-product layout-default">
                                     <div class="product-thumb">
                                         <a href="#" class="link-to-product">
@@ -589,8 +561,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
+                            </li> --}}
+                        </div>
                     </div>
                     <div id="tab01_2nd" class="tab-contain ">
                         <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
@@ -2925,7 +2897,7 @@
 
                             success: function(responsedata) {
                                 // $('#response').html('');
-                                $("#order").empty();
+                                $(".image").empty();
                                 // var rooms = responsedata.rooms;
 
                                 var order1 = responsedata;
@@ -2953,8 +2925,44 @@
                                         } = data[0];
                                         imageUrl = links.thumb;
                                     }
-                                    console.log('imageUrl', imageUrl);
-                                    $('#img').append(imageUrl);
+                                    // console.log('subcategoryItem', subcategoryItem.sub_category_desc);
+                                    // $('#img').append(imageUrl);
+                                    // $('.image').append('<a href="#" class="link-to-product" ><img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail"></a>'+
+                                    // ' <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>');
+
+$('.image').append('    <li class="product-item col-md-4 "> <div class="contain-product layout-default"> <div class="product-thumb " id="image">'+
+                                           ' <a href="#" class="link-to-product" >'+
+                                               '+ <img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail">'+
+                                           ' </a>'+
+                                           ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>'+
+
+                                        '</div>'+
+                                       ' <div class="info">'+
+
+                                            '<h4 class="product-title"><a href="#"   class="pr-name">'+subcategoryItem.sub_category_desc+'</a></h4>'+
+
+                                           ' <div class="price ">'+
+                                               ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>'+
+
+                                               ' <del><span class="price-amount"><span  class="currencySymbol">£</span>95.00</span></del>'+
+
+                                           ' </div>'+
+                                           ' <div class="slide-down-box">'+
+                                                '<p class="message">All products are carefully selected to ensure  food safety.</p>'+
+
+                                               ' <div class="buttons">'+
+                                                  '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>'+
+
+                                                   ' <a href="#" class="btn add-to-cart-btn"><i    class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to  cart</a>'+
+
+
+                                                   ' <a href="#" class="btn compare-btn"><i class="fa fa-random"  aria-hidden="true"></i></a>'+
+
+                                               '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                   ' </div></li>');
+
                                 });
 
 
