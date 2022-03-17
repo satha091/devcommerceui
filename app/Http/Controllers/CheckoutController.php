@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Http;
 
-class ProductController extends Controller
+class CheckoutController extends Controller
 {
     //
     public function index(Request $request, $page = 1)
@@ -27,7 +27,7 @@ class ProductController extends Controller
         //        'product', 'pagination'
         //     ));
 
-        return view('product');
+        return view('checkout');
 
 
     }

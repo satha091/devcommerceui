@@ -24,26 +24,31 @@
 
                     <div class="block-item recently-products-cat md-margin-bottom-39">
                         <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":0,"slidesToShow":5, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":30}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":10}}]}' >
-{{-- @dd($subitem) --}}
-                            @foreach ($subitem as $item)
-                            <li class="product-item">
-                                <div class="contain-product layout-02">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                            <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('img/no-image.gif')  }}" alt="dd" width="270" height="270" class="product-thumnail">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <b class="categories">Fresh Fruit</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
-                                        <div class="price">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+
+@if ($subitem !== [])
+@foreach ($subitem as $item)
+<li class="product-item">
+    <div class="contain-product layout-02">
+        <div class="product-thumb">
+            <a href="#" class="link-to-product">
+                <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('img/no-image.gif')  }}" alt="dd" width="270" height="270" class="product-thumnail">
+            </a>
+        </div>
+        <div class="info">
+            {{-- <b class="categories">Fresh Fruit</b> --}}
+            <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
+            <div class="price">
+                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+            </div>
+        </div>
+    </div>
+</li>
 @endforeach
+@else
+<p style="font-size: 18px;color:red">No Item Images Found</p>
+@endif
+
 
 
                             {{-- <li class="product-item">
@@ -257,16 +262,22 @@
 
                         <div class="row">
                             <ul class="products-list">
+                                @if ($subitem !== [])
+
                                 @foreach ($subitem as $item)
+                                @php
+                                $id=$item['id'];
+                                @endphp
+
                                 <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
-                                            <a href="#" class="link-to-product">
+                                            <a href="{{ url('variant/'.$id) }}" class="link-to-product">
                                                 <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('img/no-image.gif')  }}" alt="dd" width="270" height="270" class="product-thumnail">
                                             </a>
                                         </div>
                                         <div class="info">
-                                            <b class="categories">Fresh Fruit11</b>
+                                            {{-- <b class="categories">Fresh Fruit11</b> --}}
                                             <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
                                             <div class="price">
                                                 <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
@@ -280,7 +291,7 @@
                                                 <p class="message">All products are carefully selected to ensure food safety.</p>
                                                 <div class="buttons">
                                                     <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                    <a href="{{url('shopping')}}" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
                                                     <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
@@ -288,7 +299,10 @@
                                     </div>
                                 </li>
 @endforeach
+@else
+<p style="font-size: 35px;color:red;text-align:center">No Item Images Found</p>
 
+@endif
 {{--
                                 <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">

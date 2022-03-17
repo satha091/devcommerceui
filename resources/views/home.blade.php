@@ -216,7 +216,10 @@
             </div>
             <div class="biolife-tab biolife-tab-contain sm-margin-top-34px">
                 <div class="tab-head tab-head__icon-top-layout icon-top-layout">
-                    <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im" style="overflow-x:scroll">
+                    <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im" style="overflow-x: scroll;
+
+                    height: 106px;
+                    white-space: nowrap;">
                         @foreach ($product as $sub)
                             <li class="tab-element active">
                                 <a href="#allcategory" id="allcategory" onclick="category({{ $sub['id'] }})"
@@ -2942,7 +2945,7 @@ if (catgoryid) {
                                         '+ <img id="img" src=' + imageUrl +
                                         ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
                                         ' </a>' +
-                                        ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
+                                        // ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
 
                                         '</div>' +
                                         ' <div class="info">' +
@@ -3056,7 +3059,7 @@ if (catgoryid) {
                                         '+ <img id="img" src=' + imageUrl +
                                         ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
                                         ' </a>' +
-                                        ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
+                                        // ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
 
                                         '</div>' +
                                         ' <div class="info">' +
