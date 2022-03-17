@@ -2871,13 +2871,121 @@
                 </div>
             </div>
 
-            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
             <script>
+// onload funtion of catgory to subcategory
+var catid = @json($product);
+var catgoryid =catid[0].id;
 
+if (catgoryid) {
+            $.ajax({
+
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/vnd.api.v1+json'
+                },
+                url: "{{ url('getsubcat') }}/" + catgoryid,
+
+                type: "GET",
+
+                crossDomain: true,
+                beforeSend: function() {
+                    $('#response').html("<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                },
+
+                success: function(responsedata) {
+                                // $('#response').html('');
+                                $(".image").empty();
+                                // var rooms = responsedata.rooms;
+
+                                var order1 = responsedata;
+
+                                //  if(responsedata == ''){
+                                //      swal("<h5>There Is No Room Type For This Property Please Create</h5>");
+                                //      $("#roomtype").css('display','none');
+                                //      return;
+                                //  }
+
+
+                                const subcategoryData = order1.SubCategories.data;
+                                if (subcategoryData.length === 0){
+                                    alert('No Data Found');
+                                    $(".image").append('<p style="text-align:center;font-size:25px;color:red">No Data Found</p>');
+                                }
+
+
+                                console.log(subcategoryData);
+                                subcategoryData.forEach(subcategoryItem => {
+                                    const {
+                                        Assets
+                                    } = subcategoryItem;
+                                    const {
+                                        data
+                                    } = Assets;
+                                    let imageUrl = '';
+                                    if (data.length > 0) {
+                                        const {
+                                            links
+                                        } = data[0];
+                                        imageUrl = links.thumb;
+                                    }
+                                    // console.log('subcategoryItem', subcategoryItem.sub_category_desc);
+                                    // $('#img').append(imageUrl);
+                                    // $('.image').append('<a href="#" class="link-to-product" ><img id="img" src='+imageUrl+' alt="Vegetables" width="270" height="270" class="product-thumnail"></a>'+
+                                    // ' <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>');
+
+                                    $('.image').append(
+                                        '    <li class="product-item col-md-4 "> <div class="contain-product layout-default"> <div class="product-thumb " id="image">' +
+                                        ' <a href="#" onclick="itemvariant(' + subcategoryItem.id +
+                                        ')" class="link-to-product" >' +
+                                        '+ <img id="img" src=' + imageUrl +
+                                        ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
+                                        ' </a>' +
+                                        ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
+
+                                        '</div>' +
+                                        ' <div class="info">' +
+
+                                        '<h4 class="product-title"><a href="#"   class="pr-name">' +
+                                        subcategoryItem.sub_category_desc + '</a></h4>' +
+
+                                        ' <div class="price ">' +
+                                        ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>' +
+
+                                        ' <del><span class="price-amount"><span  class="currencySymbol">£</span>95.00</span></del>' +
+
+                                        ' </div>' +
+                                        ' <div class="slide-down-box">' +
+                                        '<p class="message">All products are carefully selected to ensure  food safety.</p>' +
+
+                                        ' <div class="buttons">' +
+                                        '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>' +
+
+                                        ' <a href="#" class="btn add-to-cart-btn"><i    class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to  cart</a>' +
+
+
+                                        ' <a href="#" class="btn compare-btn"><i class="fa fa-random"  aria-hidden="true"></i></a>' +
+
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        ' </div></li>');
+
+                                });
+
+
+                            }
+            })
+
+
+        }
+//End of onload funtion of catgory to subcategory
 
                 // $(document).ready(function() {
                 //     category(3);
                 //  });
+                // onclick funtion of category to subcategory
                 function category(id) {
                     //   alert("hii");
                     // cat nu enga mention panirukenga
@@ -2987,7 +3095,7 @@
 
                     }
                 }
-
+ //End of onclick funtion of category to subcategory
 
                 function itemvariant(subid) {
                     console.log(subid);
