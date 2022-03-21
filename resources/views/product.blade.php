@@ -38,8 +38,8 @@
             {{-- <b class="categories">Fresh Fruit</b> --}}
             <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
             <div class="price">
-                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                <ins><span class="price-amount"><span class="currencySymbol">£</span>{{$item['selling_price']}}</span></ins>
+                <del><span class="price-amount"><span class="currencySymbol">£</span>{{$item['MRP']}}</span></del>
             </div>
         </div>
     </div>
@@ -280,15 +280,15 @@
                                             {{-- <b class="categories">Fresh Fruit11</b> --}}
                                             <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>{{$item['selling_price']}}</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">£</span>{{$item['MRP']}}</span></del>
                                             </div>
                                             <div class="shipping-info">
                                                 <p class="shipping-day">3-Day Shipping</p>
                                                 <p class="for-today">Pree Pickup Today</p>
                                             </div>
                                             <div class="slide-down-box">
-                                                <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                <p class="message">{{$item['item_desc']}}</p>
                                                 <div class="buttons">
                                                     <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                                     <a href="{{url('shopping')}}" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>

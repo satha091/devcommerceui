@@ -39,7 +39,7 @@
 
                         <ul class="biolife-carousel slider-nav" data-slick='{"arrows":false,"dots":false,"centerMode":false,"focusOnSelect":true,"slidesMargin":10,"slidesToShow":4,"slidesToScroll":1,"asNavFor":".slider-for"}'>
                             @foreach ($itemvariant['ItemVariants']['data'] as $item)
-                            <li><img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('images/no-image.png')  }}" alt="" width="88" height="88"></li>
+                            <li><img onclick="itemcat({{$item['id']}})"  src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('images/no-image.png')  }}" alt="" width="88" height="88"></li>
                             @endforeach
 
                         </ul>
@@ -48,7 +48,7 @@
 
                         @endif
                     </div>
-                    <div class="product-attribute">
+                    <div class="product-attribute detaile" >
                         <h3 class="title">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</h3>
                         <div class="rating">
                             <p class="star-rating"><span class="width-80percent"></span></p>
@@ -574,4 +574,93 @@
             </div>
         </div>
     </div>
+    {{-- <script>
+function itemcat(id){
+    console.log(id);
+    $('.detaile').empty();
+    if (id) {
+                        $.ajax({
+
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/vnd.api.v1+json'
+                            },
+
+                            url: "{{ url('getitemvar') }}/" + id,
+
+                            type: "GET",
+
+                            crossDomain: true,
+                            beforeSend: function() {
+                                $('#response').html(
+                                    "<img src='{{ asset('files/assets/images/ajax-loader.gif') }}' />");
+                            },
+
+                            success: function(responsedata) {
+                                // $('#response').html('');
+                                $(".image").empty();
+                                // var rooms = responsedata.rooms;
+
+                                var itemvariant = responsedata;
+
+
+
+                                const subcategoryData = itemvariant.ItemVariants.data;
+                                console.log(subcategoryData);
+                                if (subcategoryData.length === 0){
+                                    alert('No Data Found');
+                                    $(".image").append('<p style="text-align:center;font-size:25px;color:red">No Data Found</p>');
+                                }
+
+
+                                console.log(subcategoryData);
+
+
+                                    $('.detaile').append('<h3 class="title">Organic 10 Assorted Flavors Jelly Beans, 5.5 Oz</h3>'+
+                        '<div class="rating">'+
+                            '<p class="star-rating"><span class="width-80percent"></span></p>'+
+                            '<span class="review-count">(04 Reviews)</span>'+
+                           '<span class="qa-text">Q&A</span>'+
+                           '<b class="category">By: Natural food</b>'+
+                        '</div>'+
+                        '<span class="sku">Sku: #76584HH</span>'+
+                        '<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>'+
+                        '<div class="price">'+
+                            '<ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>'+
+                            '<del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>'+
+                       '</div>'+
+                        '<div class="product-atts">'+
+                            '<div class="atts-item">'+
+                                '<span class="title">Color:</span>'+
+                                '<ul class="color-list">'+
+                                    '<li class="color-item"><a href="#" class="c-link"><span class="symbol img-color"></span>Multi</a></li>'+
+                                    '<li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-01"></span>Red</a></li>'+
+                                    '<li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-02"></span>Orrange</a></li>'+
+                                    '<li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-03"></span>Other</a></li>'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="shipping-info">'+
+                            '<p class="shipping-day">3-Day Shipping</p>'+
+                            '<p class="for-today">Pree Pickup Today</p>'+
+                        '</div>');
+
+
+
+
+                            }
+                        })
+
+
+                    }
+    // alert("hiii");
+
+
+
+
+}
+
+
+        </script> --}}
 @endsection

@@ -27,3 +27,4 @@ Route::get('checkout','CheckoutController@index')->name('checkout');
 
 Route::get('shopping','ShoppingController@index')->name('shopping');
 
+Route::get('getitemvar/{id}','ItemvaiantController@getitemvar')->name('getitemvar.ajax');
