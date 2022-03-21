@@ -2951,7 +2951,7 @@ if (catgoryid) {
                                         ' <div class="info">' +
 
                                         '<h4 class="product-title"><a href="#"   class="pr-name">' +
-                                        subcategoryItem.sub_category_desc + '</a></h4>' +
+                                        subcategoryItem.title + '</a></h4>' +
 
                                         ' <div class="price ">' +
                                         ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>' +
@@ -2960,7 +2960,7 @@ if (catgoryid) {
 
                                         ' </div>' +
                                         ' <div class="slide-down-box">' +
-                                        '<p class="message">All products are carefully selected to ensure  food safety.</p>' +
+                                        '<p class="message">'+subcategoryItem.sub_category_desc+'</p>' +
 
                                         ' <div class="buttons">' +
                                         '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>' +
@@ -3065,7 +3065,7 @@ if (catgoryid) {
                                         ' <div class="info">' +
 
                                         '<h4 class="product-title"><a href="#"   class="pr-name">' +
-                                        subcategoryItem.sub_category_desc + '</a></h4>' +
+                                        subcategoryItem.title + '</a></h4>' +
 
                                         ' <div class="price ">' +
                                         ' <ins><span class="price-amount"><span   class="currencySymbol">£</span>85.00</span></ins>' +
@@ -3074,7 +3074,7 @@ if (catgoryid) {
 
                                         ' </div>' +
                                         ' <div class="slide-down-box">' +
-                                        '<p class="message">All products are carefully selected to ensure  food safety.</p>' +
+                                        '<p class="message">'+subcategoryItem.sub_category_desc+'</p>' +
 
                                         ' <div class="buttons">' +
                                         '  <a href="#" class="btn wishlist-btn"><i class="fa fa-heart"   aria-hidden="true"></i></a>' +
