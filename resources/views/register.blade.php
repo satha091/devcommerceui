@@ -11,7 +11,7 @@ margin-bottom: 30px;
     </style>
     <!--Hero Section-->
     <div class="hero-section hero-background">
-        <h1 class="page-title">Login Form</h1>
+        <h1 class="page-title">Register Form</h1>
     </div>
 
     <!--Navigation section-->
@@ -35,33 +35,62 @@ margin-bottom: 30px;
                     <!--Form Sign In-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <div class="signin-container">
-                            <form action="{{ url('login') }}" method="post">
+                            <form action="{{ url('register') }}" method="post">
                                 @csrf
 
                             <div class="card-block">
-                                @if(session('error') !== null)
-                                <div class='alert alert-danger'>
-                                    {{ session('error') }}
+                                @if(session('success') !== null)
+                                <div class="succWrap">
+                                    {{ session('success') }}
                                 </div>
-                            @endif
-
-                            @if(session('success') !== null)
-                            <div class='alert alert-success'>
+                                <!-- <div class='alert alert-success'>
                                 {{ session('success') }}
-                            </div>
-                        @endif
+                            </div> -->
+                                @endif
+
+                                @if(session('errors') !== null)
+
+                                @foreach(session('errors') as $v)
+                                @foreach($v as $e)
+
+                                <div class="alert alert-danger"><strong>ERROR</strong>: {{ $e }} </div>
+
+
+                                @endforeach
+
+                                @endforeach
+                                @endif
+
+
+                                @if(session('error') !== null)
+                                <div class="alert alert-danger"><strong>ERROR</strong>: {{session('error') }} </div>
+
+                                @endif
+
+                                @if(session('message') !== null)
+                                <div class="errorWrap"><strong>ERROR</strong>: {{session('message') }} </div>
+
+                                @endif
                                 <p class="form-row">
-                                    <label for="fid-name">Email Address:<span class="requite">*</span></label>
-                                    <input type="text" id="username" name="username" value="" class="txt-input">
+                                    <label for="fid-name">Name:<span class="requite">*</span></label>
+                                    <input type="text" id="name" name="name" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
-                                    <label for="fid-pass">Password:<span class="requite">*</span></label>
+                                    <label for="fid-pass">E-Mail:<span class="requite">*</span></label>
+                                    <input type="email" id="email" name="email" value="" class="txt-input">
+                                </p>
+                                <p class="form-row">
+                                    <label for="fid-pass">Password<span class="requite">*</span></label>
                                     <input type="password" id="password" name="password" value="" class="txt-input">
                                 </p>
+                                <p class="form-row">
+                                    <label for="fid-pass">Confirm Password:<span class="requite">*</span></label>
+                                    <input type="password" id="password_confirmation" name="password_confirmation" value="" class="txt-input">
+                                </p>
                                 <p class="form-row wrap-btn">
-                                    <button class="btn btn-submit btn-bold" type="submit">sign in</button>
+                                    <button class="btn btn-submit btn-bold" type="submit">Register</button>
                                     {{-- <a href="#" class="link-to-help">Forgot your password</a> --}}
-                                    <a href="{{url('register')}}" class="btn btn-bold col-md-offset-5">Create an account</a>
+                                    {{-- <a href="#" class="btn btn-bold col-md-offset-5">Create an account</a> --}}
                                 </p>
                             </form>
                         </div>
