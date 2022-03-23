@@ -161,9 +161,14 @@
             <div class="glb-item my-account">
                 <b class="title">My Account</b>
                 <ul class="list">
+                    @if(session('username') == '')
                     <li class="list-item"><a href="{{url('login')}}">Login/register</a></li>
+                    @else
+                    <li><a style="color: black" href="#">Welcome : <b>{{session('username')}}</b></a></li>
                     <li class="list-item"><a href="#">Wishlist <span class="index">(8)</span></a></li>
                     <li class="list-item"><a href="#">Checkout</a></li>
+                    <li><a style="color: black" class="dropdown-item {{ (request()->is('logout')) ? 'active' : '' }}" href="{{ route('logout') }}">Logout</a></li>
+              @endif
                 </ul>
             </div>
             <div class="glb-item currency">
