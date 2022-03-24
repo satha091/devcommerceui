@@ -59,20 +59,21 @@
         <div class="product-tab z-index-20 ">
             <div class="container">
                 <div class="biolife-title-box">
-                    <span class="subtitle">All the best item for You</span>
-                    <h3 class="main-title">Related Products</h3>
+                    {{-- <span class="subtitle">All the best item for You</span>
+                    <h3 class="main-title">Related Products</h3> --}}
                 </div>
                 <div class="biolife-tab biolife-tab-contain sm-margin-top-34px">
                     <div class="tab-head tab-head__icon-top-layout icon-top-layout">
                         <ul class="tabs md-margin-bottom-35-im xs-margin-bottom-40-im" style="overflow-x: scroll;
 
-                        height: 106px;
+                        height: 60px;
                         white-space: nowrap;">
                             @foreach ($product as $sub)
                                 <li class="tab-element active">
-                                    <a href="#allcategory" id="allcategory" onclick="category({{ $sub['id'] }})"
-                                        class="tab-link"><span
-                                            class="biolife-icon icon-lemon"></span>{{ $sub['title'] }}</a>
+                                    <a style="font-size: 22px" href="#allcategory" id="allcategory" onclick="category({{ $sub['id'] }})"
+                                        class="tab-link">{{ $sub['title'] }}</a>
+                                        {{-- <span class="biolife-icon icon-lemon"></span> --}}
+
                                 </li>
                             @endforeach
                             {{-- <li class="tab-element" >
@@ -1849,7 +1850,8 @@
     <!--Block 02: Banner-->
     <div class="special-slide">
         <div class="container">
-            <ul class="biolife-carousel dots_ring_style"
+            {{-- this code hidden on 24.03.2022 --}}
+            {{-- <ul class="biolife-carousel dots_ring_style"
                 data-slick='{"arrows": false, "dots": true, "slidesMargin": 30, "slidesToShow": 1, "infinite": true, "speed": 800, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 1}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":20, "dots": false}},{"breakpoint":480, "settings":{ "slidesToShow": 1}}]}'>
                 <li>
                     <div class="slide-contain biolife-banner__special">
@@ -1967,7 +1969,8 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
+              {{--End of  this code hidden on 24.03.2022 --}}
             <div class="biolife-service type01 biolife-service__type01 sm-margin-top-0 xs-margin-top-45px">
                 <b class="txt-show-01">100%Nature</b>
                 <i class="txt-show-02">Fresh Fruits</i>
@@ -2001,7 +2004,8 @@
 
 
     <!--Block 04: Banner Promotion 01 -->
-    <div class="banner-promotion-01 xs-margin-top-50px sm-margin-top-11px">
+    {{-- this code is hidden on 24.03.2022 --}}
+    {{-- <div class="banner-promotion-01 xs-margin-top-50px sm-margin-top-11px">
         <div class="biolife-banner promotion biolife-banner__promotion">
             <div class="banner-contain">
                 <div class="media background-biolife-banner__promotion">
@@ -2032,10 +2036,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    {{--End Of this code is hidden on 24.03.2022 --}}
 
     <!--Block 05: Banner Promotion 02-->
-    <div class="banner-promotion-02 z-index-20">
+       {{-- this code is hidden on 24.03.2022 --}}
+    {{-- <div class="banner-promotion-02 z-index-20">
         <div class="biolife-banner promotion2 biolife-banner__promotion2">
             <div class="banner-contain">
                 <div class="container">
@@ -2054,8 +2060,8 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </div> --}}
+  {{--End Of this code is hidden on 24.03.2022 --}}
     <!--Block 06: Products-->
     <div class="Product-box sm-margin-top-96px xs-margin-top-0">
         <div class="container">
