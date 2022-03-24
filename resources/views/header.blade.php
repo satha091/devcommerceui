@@ -1,4 +1,20 @@
-    <header id="header" class="header-area style-01 layout-03">
+<?php
+use Illuminate\Support\Facades\Http;
+  try {
+            $response =  Http::withHeaders([
+                'Accept' => 'application/vnd.api.v1+json',
+                'Content-Type' => 'application/json'
+            ])->get(config('global.url') . '/api/member/prodCat?include=SubCategories.item');
+        } catch (\Exception $e) {     }
+
+        $product = $response['data'];
+        // var_dump($product);
+
+?>
+ {{-- @foreach ($product as $post)
+ <div class="title"><h3>{{json_encode($post['category_desc']) }}</h3></div>
+@endforeach --}}
+  <header id="header" class="header-area style-01 layout-03">
         <div class="header-top bg-main hidden-xs">
             <div class="container">
                 <div class="top-bar left">
