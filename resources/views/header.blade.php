@@ -619,10 +619,10 @@ use Illuminate\Support\Facades\Http;
                                             {{-- <li class="menu-item"><a href="#">Omelettes</a></li>
                                             <li class="menu-item"><a href="#">Breakfast Scrambles</a></li> --}}
                                             @foreach ($post['SubCategories']['data'] as $subproduct)
-                                            <li class="menu-item menu-item-has-children has-child"><a href="#" class="menu-name" data-title="Eggs & other considerations">{{ $subproduct['title']}}</a>
+                                            <li class="menu-item menu-item-has-children has-child"><a style="cursor: pointer;" class="menu-name" onclick="itemvariant({{ $subproduct['id']}} )" data-title="Eggs & other considerations">{{ $subproduct['title']}}</a>
                                                 <ul class="sub-menu">
                                                     @foreach ($subproduct['Items']['data'] as $item)
-                                                    <li class="menu-item"><a href="#">{{$item['title']}}</a></li>
+                                                    <li class="menu-item"><a style="cursor: pointer;" onclick="item({{ $item['id']}} )">{{$item['title']}}</a></li>
 
 
                                                     @endforeach
@@ -803,3 +803,19 @@ use Illuminate\Support\Facades\Http;
             </div>
         </div>
     </header>
+<script>
+          function itemvariant(subid) {
+                    console.log(subid);
+                    window.location = '/product/' + subid;
+                    // window.location = '/product';
+
+                }
+
+                function item(itemid) {
+                    console.log(itemid);
+                    window.location = '/variant/' + itemid;
+                    // window.location = '/product';
+
+                }
+
+            </script>
