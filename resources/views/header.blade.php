@@ -4,16 +4,14 @@ use Illuminate\Support\Facades\Http;
             $response =  Http::withHeaders([
                 'Accept' => 'application/vnd.api.v1+json',
                 'Content-Type' => 'application/json'
-            ])->get(config('global.url') . '/api/member/prodCat?include=SubCategories.item');
+            ])->get(config('global.url') . '/api/member/prodCat?include=SubCategories.Items');
         } catch (\Exception $e) {     }
 
         $product = $response['data'];
         // var_dump($product);
 
 ?>
- {{-- @foreach ($product as $post)
- <div class="title"><h3>{{json_encode($post['category_desc']) }}</h3></div>
-@endforeach --}}
+
   <header id="header" class="header-area style-01 layout-03">
         <div class="header-top bg-main hidden-xs">
             <div class="container">
@@ -496,14 +494,20 @@ use Illuminate\Support\Facades\Http;
                             </div>
                             <div class="wrap-menu">
                                 <ul class="menu clone-main-menu">
+
+{{--
                                     <li class="menu-item menu-item-has-children has-megamenu">
-                                        <a href="#" class="menu-name" data-title="Fruit & Nut Gifts"><i class="biolife-icon icon-fruits"></i>Fruit & Nut Gifts</a>
+                                        <a href="#" class="menu-name" data-title="Fruit & Nut Gifts"><i class="biolife-icon icon-fruits"></i> {{$post['category_desc'] }}
+                                        </a>
                                         <div class="wrap-megamenu lg-width-900 md-width-640">
                                             <div class="mega-content">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-4 col-sm-12 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        @foreach ($post['SubCategories']['data'] as $subcat)
                                                         <div class="wrap-custom-menu vertical-menu">
-                                                            <h4 class="menu-title">Fresh Fuits</h4>
+
+                                                            <h4 class="menu-title">{{$subcat['title']}}</h4>
+
                                                             <ul class="menu">
                                                                 <li><a href="#">Fruit & Nut Gifts</a></li>
                                                                 <li><a href="#">Mixed Fruits</a></li>
@@ -516,8 +520,9 @@ use Illuminate\Support\Facades\Http;
                                                                 <li><a href="#">Snack Foods</a></li>
                                                             </ul>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-4 col-sm-12 lg-padding-left-23 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        @endforeach
+                                                    </div> --}}
+                                                    {{-- <div class="col-lg-3 col-md-4 col-sm-12 lg-padding-left-23 xs-margin-bottom-25 md-margin-bottom-0">
                                                         <div class="wrap-custom-menu vertical-menu">
                                                             <h4 class="menu-title">Nut Gifts</h4>
                                                             <ul class="menu">
@@ -532,8 +537,8 @@ use Illuminate\Support\Facades\Http;
                                                                 <li><a href="#">Nuts & Seeds</a></li>
                                                             </ul>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-4 col-sm-12 lg-padding-left-50 xs-margin-bottom-25 md-margin-bottom-0">
+                                                    </div> --}}
+                                                    {{-- <div class="col-lg-6 col-md-4 col-sm-12 lg-padding-left-50 xs-margin-bottom-25 md-margin-bottom-0">
                                                         <div class="biolife-products-block max-width-270">
                                                             <h4 class="menu-title">Bestseller Products</h4>
                                                             <ul class="products-list default-product-style biolife-carousel nav-none-after-1k2 nav-center" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":1, "responsive":[{"breakpoint":767, "settings":{ "arrows": false}}]}' >
@@ -590,9 +595,9 @@ use Illuminate\Support\Facades\Http;
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
+                                                    </div> --}}
+                                                {{-- </div> --}}
+                                                {{-- <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 md-margin-top-9">
                                                         <div class="biolife-brand" >
                                                             <ul class="brands">
@@ -603,11 +608,32 @@ use Illuminate\Support\Facades\Http;
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </div> --}}
+                                            {{-- </div>
                                         </div>
+                                    </li> --}}
+                                    @foreach ($product as $post)
+                                    <li class="menu-item menu-item-has-children has-child">
+                                        <a href="#" class="menu-name" data-title="Butter & Eggs">{{$post['title']}}</a>
+                                        <ul class="sub-menu">
+                                            {{-- <li class="menu-item"><a href="#">Omelettes</a></li>
+                                            <li class="menu-item"><a href="#">Breakfast Scrambles</a></li> --}}
+                                            @foreach ($post['SubCategories']['data'] as $subproduct)
+                                            <li class="menu-item menu-item-has-children has-child"><a href="#" class="menu-name" data-title="Eggs & other considerations">{{ $subproduct['title']}}</a>
+                                                <ul class="sub-menu">
+                                                    @foreach ($subproduct['Items']['data'] as $item)
+                                                    <li class="menu-item"><a href="#">{{$item['title']}}</a></li>
+
+
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                            @endforeach
+
+                                        </ul>
                                     </li>
-                                    <li class="menu-item menu-item-has-children has-megamenu">
+                                    @endforeach
+                                    {{-- <li class="menu-item menu-item-has-children has-megamenu">
                                         <a href="#" class="menu-name" data-title="Vegetables"><i class="biolife-icon icon-broccoli-1"></i>Vegetables</a>
                                         <div class="wrap-megamenu lg-width-900 md-width-640 background-mega-01">
                                             <div class="mega-content">
@@ -744,7 +770,7 @@ use Illuminate\Support\Facades\Http;
                                     <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-onions"></i>Fresh Onion</a></li>
                                     <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-avocado"></i>Papaya & Crisps</a></li>
                                     <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-contain"></i>Oatmeal</a></li>
-                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-fresh-juice"></i>Fresh Bananas & Plantains</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-fresh-juice"></i>Fresh Bananas & Plantains</a></li> --}}
                                 </ul>
                             </div>
                         </div>
