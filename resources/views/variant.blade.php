@@ -33,13 +33,13 @@
                         @if($itemvariant['ItemVariants']['data'] !== [])
                         <ul class="biolife-carousel slider-for" data-slick='{"arrows":false,"dots":false,"slidesMargin":30,"slidesToShow":1,"slidesToScroll":1,"fade":true,"asNavFor":".slider-nav"}'>
                             @foreach ($itemvariant['ItemVariants']['data'] as $item)
-                            <li><img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=500&height=500' : asset('img/no-image.gif')  }}" alt="" ></li>
+                            <li><img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'] : asset('img/no-image.gif')  }}" alt="" style="width: 300px;height:300px"></li>
 @endforeach
                         </ul>
 
                         <ul class="biolife-carousel slider-nav" data-slick='{"arrows":false,"dots":false,"centerMode":false,"focusOnSelect":true,"slidesMargin":10,"slidesToShow":4,"slidesToScroll":1,"asNavFor":".slider-for"}'>
                             @foreach ($itemvariant['ItemVariants']['data'] as $item)
-                            <li><img onclick="itemcat({{$item['id']}})"  src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('images/no-image.png')  }}" alt="" width="88" height="88"></li>
+                            <li><img   src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'] : asset('images/no-image.png')  }}" style="width: 100px;height:100px" alt=""></li>
                             @endforeach
 
                         </ul>

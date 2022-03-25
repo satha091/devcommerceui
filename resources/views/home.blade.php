@@ -2939,7 +2939,7 @@ if (catgoryid) {
                                         const {
                                             links
                                         } = data[0];
-                                        imageUrl = links.thumb;
+                                        imageUrl = links.full;
                                     }
                                     // console.log('subcategoryItem', subcategoryItem.sub_category_desc);
                                     // $('#img').append(imageUrl);
@@ -2951,7 +2951,7 @@ if (catgoryid) {
                                         ' <a href="#" onclick="itemvariant(' + subcategoryItem.id +
                                         ')" class="link-to-product" >' +
                                         '+ <img id="img" src=' + imageUrl +
-                                        ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
+                                        ' alt="Vegetables" style="width:300px;height:350px" class="product-thumnail">' +
                                         ' </a>' +
                                         // ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
 
@@ -3053,7 +3053,7 @@ if (catgoryid) {
                                         const {
                                             links
                                         } = data[0];
-                                        imageUrl = links.thumb;
+                                        imageUrl = links.full;
                                     }
                                     // console.log('subcategoryItem', subcategoryItem.sub_category_desc);
                                     // $('#img').append(imageUrl);
@@ -3065,7 +3065,7 @@ if (catgoryid) {
                                         ' <a href="#" onclick="itemvariant(' + subcategoryItem.id +
                                         ')" class="link-to-product" >' +
                                         '+ <img id="img" src=' + imageUrl +
-                                        ' alt="Vegetables" width="270" height="270" class="product-thumnail">' +
+                                        ' alt="Vegetables" style="width:300px;height:320px" class="product-thumnail">' +
                                         ' </a>' +
                                         // ' <a class="lookup btn_call_quickview" href="#"><i  class="biolife-icon icon-search"></i></a>' +
 

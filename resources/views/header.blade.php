@@ -614,7 +614,7 @@ use Illuminate\Support\Facades\Http;
                                     </li> --}}
                                     @foreach ($product as $post)
                                     <li class="menu-item menu-item-has-children has-child">
-                                        <a href="#" class="menu-name" data-title="Butter & Eggs">{{$post['title']}}</a>
+                                        <a href="#" class="menu-name" data-title="Butter & Eggs" onclick="subcat({{ $post['id']}} )">{{$post['title']}}</a>
                                         <ul class="sub-menu">
                                             {{-- <li class="menu-item"><a href="#">Omelettes</a></li>
                                             <li class="menu-item"><a href="#">Breakfast Scrambles</a></li> --}}
@@ -817,5 +817,10 @@ use Illuminate\Support\Facades\Http;
                     // window.location = '/product';
 
                 }
+                function subcat(catid) {
+                    console.log(catid);
+                    window.location = '/subcategory/' + catid;
+                    // window.location = '/product';
 
+                }
             </script>

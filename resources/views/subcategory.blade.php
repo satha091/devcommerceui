@@ -2,7 +2,7 @@
 @section('content')
     <!--Hero Section-->
     <div class="hero-section hero-background">
-        <h1 class="page-title">Product Variants</h1>
+        <h1 class="page-title">Sub Category</h1>
     </div>
 
     <!--Navigation section-->
@@ -10,48 +10,39 @@
         <nav class="biolife-nav">
             <ul>
                 <li class="nav-item"><a href="{{url('/')}}" class="permal-link">Home</a></li>
-                {{-- <li class="nav-item"><a href="#" class="permal-link">Natural Organic</a></li> --}}
-                <li class="nav-item"><span class="current-page">Variants</span></li>
+                <li class="nav-item"><a href="#" class="permal-link">Sub Category</a></li>
+                {{-- <li class="nav-item"><span class="current-page">Fresh Fruit</span></li> --}}
             </ul>
         </nav>
     </div>
 
-    <div class="page-contain category-page left-sidebar">
+    <div class="page-contain category-page no-sidebar">
         <div class="container">
             <div class="row">
+
                 <!-- Main content -->
-                <div id="main-content" class="main-content col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div id="main-content" class="main-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                    <div class="block-item recently-products-cat md-margin-bottom-39">
+                    {{-- <div class="block-item recently-products-cat md-margin-bottom-39">
                         <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":0,"slidesToShow":5, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":30}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":10}}]}' >
-
-@if ($subitem !== [])
-@foreach ($subitem as $item)
-<li class="product-item">
-    <div class="contain-product layout-02">
-        <div class="product-thumb">
-            <a href="#" class="link-to-product">
-                <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'].'?width=100&height=75' : asset('img/no-image.gif')  }}" alt="dd" width="270" height="270" class="product-thumnail">
-            </a>
-        </div>
-        <div class="info">
-            {{-- <b class="categories">Fresh Fruit</b> --}}
-            <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
-            <div class="price">
-                <ins><span class="price-amount"><span class="currencySymbol">£</span>{{$item['selling_price']}}</span></ins>
-                <del><span class="price-amount"><span class="currencySymbol">£</span>{{$item['MRP']}}</span></del>
-            </div>
-        </div>
-    </div>
-</li>
-@endforeach
-@else
-<p style="font-size: 18px;color:red">No Item Images Found</p>
-@endif
-
-
-
-                            {{-- <li class="product-item">
+                            <li class="product-item">
+                                <div class="contain-product layout-02">
+                                    <div class="product-thumb">
+                                        <a href="#" class="link-to-product">
+                                            <img src="assets/images/products/p-08.jpg" alt="dd" width="270" height="270" class="product-thumnail">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <b class="categories">Fresh Fruit</b>
+                                        <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                        <div class="price">
+                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product-item">
                                 <div class="contain-product layout-02">
                                     <div class="product-thumb">
                                         <a href="#" class="link-to-product">
@@ -186,9 +177,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li> --}}
+                            </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                     <div class="product-category grid-style">
 
@@ -262,49 +253,48 @@
 
                         <div class="row">
                             <ul class="products-list">
-                                @if ($subitem !== [])
+                                {{-- @dd($prodsubcategories) --}}
+                                @if($prodsubcategories != [])
+@foreach ($prodsubcategories as $subcat)
 
-                                @foreach ($subitem as $item)
-                                @php
-                                $id=$item['id'];
-                                @endphp
 
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
-                                            <a href="{{ url('variant/'.$id) }}" class="link-to-product">
-                                                <img src="{{ isset($item['Assets']['data'][0]['links']) ? $item['Assets']['data'][0]['links']['full'] : asset('img/no-image.gif')  }}" style="width: 300px;height:300px" class="product-thumnail">
+                                            <a style="cursor: pointer" onclick="subcat({{$subcat['id']}})" class="link-to-product">
+                                                <img src="{{ isset($subcat['Assets']['data'][0]['links']) ? $subcat['Assets']['data'][0]['links']['full'].'?width=400&height=400' : asset('img/no-image.gif')  }}"   class="product-thumnail">
                                             </a>
                                         </div>
                                         <div class="info">
-                                            {{-- <b class="categories">Fresh Fruit11</b> --}}
-                                            <h4 class="product-title"><a href="#" class="pr-name">{{$item['title']}}</a></h4>
+                                            {{-- <b class="categories">Fresh Fruit</b> --}}
+                                            <h4 class="product-title"><a href="#" class="pr-name">{{$subcat['title']}}</a></h4>
                                             <div class="price">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>{{$item['selling_price']}}</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>{{$item['MRP']}}</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
                                             </div>
-                                            <div class="shipping-info">
+                                            {{-- <div class="shipping-info">
                                                 <p class="shipping-day">3-Day Shipping</p>
                                                 <p class="for-today">Pree Pickup Today</p>
-                                            </div>
+                                            </div> --}}
                                             <div class="slide-down-box">
-                                                <p class="message">{{$item['item_desc']}}</p>
+                                                <p class="message">{{$subcat['sub_category_desc']}}</p>
                                                 <div class="buttons">
                                                     <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                    <a href="{{url('shopping')}}" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
                                                     <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-@endforeach
-@else
-<p style="font-size: 35px;color:red;text-align:center">No Item Images Found</p>
 
-@endif
-{{--
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                @endforeach
+                                @else
+<p style="text-align: center;color:red">No Subcategory For This Product</p>
+
+                                @endif
+
+                                {{-- <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -333,7 +323,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -362,8 +352,7 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -392,7 +381,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -421,7 +411,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -450,8 +440,7 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -480,7 +469,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -509,7 +498,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -538,8 +528,7 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -568,7 +557,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -597,7 +586,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -627,7 +616,7 @@
                                     </div>
                                 </li>
 
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -656,7 +645,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
@@ -685,11 +674,40 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a href="#" class="link-to-product">
                                                 <img src="assets/images/products/p-14.jpg" alt="dd" width="270" height="270" class="product-thumnail">
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">Fresh Fruit</b>
+                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                            <div class="price">
+                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                            </div>
+                                            <div class="shipping-info">
+                                                <p class="shipping-day">3-Day Shipping</p>
+                                                <p class="for-today">Pree Pickup Today</p>
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                <div class="buttons">
+                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                    <div class="contain-product layout-default">
+                                        <div class="product-thumb">
+                                            <a href="#" class="link-to-product">
+                                                <img src="assets/images/products/p-21.jpg" alt="dd" width="270" height="270" class="product-thumnail">
                                             </a>
                                         </div>
                                         <div class="info">
@@ -732,180 +750,14 @@
                     </div>
 
                 </div>
-                <!-- Sidebar -->
-                <aside id="sidebar" class="sidebar col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                    <div class="biolife-mobile-panels">
-                        <span class="biolife-current-panel-title">Sidebar</span>
-                        <a class="biolife-close-btn" href="#" data-object="open-mobile-filter">&times;</a>
-                    </div>
-                    <div class="sidebar-contain">
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Departements</h4>
-                            <div class="wgt-content">
-                                <ul class="cat-list">
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Organic Food</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Fresh Fruit</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Dried Fruits</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Shipping & Pickup</h4>
-                            <div class="wgt-content">
-                                <ul class="cat-list">
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Show all</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">2- Day shipping</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Shop to Home</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Free Pickup</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget price-filter biolife-filter">
-                            <h4 class="wgt-title">Price</h4>
-                            <div class="wgt-content">
-                                <div class="frm-contain">
-                                    <form action="#" name="price-filter" id="price-filter" method="get">
-                                        <p class="f-item">
-                                            <label for="pr-from">$</label>
-                                            <input class="input-number" type="number" id="pr-from" value="" name="price-from">
-                                        </p>
-                                        <p class="f-item">
-                                            <label for="pr-to">to $</label>
-                                            <input class="input-number" type="number" id="pr-to" value="" name="price-from">
-                                        </p>
-                                        <p class="f-item"><button class="btn-submit" type="submit">go</button></p>
-                                    </form>
-                                </div>
-                                <ul class="check-list bold single">
-                                    <li class="check-list-item"><a href="#" class="check-link">$0 - $5</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">$5 - $10</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">$15 - $20</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Brand</h4>
-                            <div class="wgt-content">
-                                <ul class="check-list multiple">
-                                    <li class="check-list-item"><a href="#" class="check-link">Great Value Organic</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">Plum Organic</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">Shop to Home</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Color</h4>
-                            <div class="wgt-content">
-                                <ul class="color-list">
-                                    <li class="color-item"><a href="#" class="c-link"><span class="symbol img-color"></span>Multi</a></li>
-                                    <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-01"></span>Red</a></li>
-                                    <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-02"></span>Orrange</a></li>
-                                    <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-03"></span>Other</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Popular Size</h4>
-                            <div class="wgt-content">
-                                <ul class="check-list bold multiple">
-                                    <li class="check-list-item"><a href="#" class="check-link">8oz</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">15oz</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">6oz</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">30oz</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Number of Pieces</h4>
-                            <div class="wgt-content">
-                                <ul class="check-list bold">
-                                    <li class="check-list-item"><a href="#" class="check-link">1 to 9</a></li>
-                                    <li class="check-list-item"><a href="#" class="check-link">10 to 15</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Recently Viewed</h4>
-                            <div class="wgt-content">
-                                <ul class="products">
-                                    <li class="pr-item">
-                                        <div class="contain-product style-widget">
-                                            <div class="product-thumb">
-                                                <a href="#" class="link-to-product" tabindex="0">
-                                                    <img src="{{url('assets/images/products/p-13.jpg')}}" alt="dd" width="270" height="270" class="product-thumnail">
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <b class="categories">Fresh Fruit</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name" tabindex="0">National Fresh Fruit</a></h4>
-                                                <div class="price">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="pr-item">
-                                        <div class="contain-product style-widget">
-                                            <div class="product-thumb">
-                                                <a href="#" class="link-to-product" tabindex="0">
-                                                    <img src="{{url('assets/images/products/p-14.jpg')}}" alt="dd" width="270" height="270" class="product-thumnail">
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <b class="categories">Fresh Fruit</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name" tabindex="0">National Fresh Fruit</a></h4>
-                                                <div class="price">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="pr-item">
-                                        <div class="contain-product style-widget">
-                                            <div class="product-thumb">
-                                                <a href="#" class="link-to-product" tabindex="0">
-                                                    <img src="{{url('assets/images/products/p-10.jpg')}}" alt="dd" width="270" height="270" class="product-thumnail">
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <b class="categories">Fresh Fruit</b>
-                                                <h4 class="product-title"><a href="#" class="pr-name" tabindex="0">National Fresh Fruit</a></h4>
-                                                <div class="price">
-                                                    <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                    <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Product Tags</h4>
-                            <div class="wgt-content">
-                                <ul class="tag-cloud">
-                                    <li class="tag-item"><a href="#" class="tag-link">Fresh Fruit</a></li>
-                                    <li class="tag-item"><a href="#" class="tag-link">Natural Food</a></li>
-                                    <li class="tag-item"><a href="#" class="tag-link">Hot</a></li>
-                                    <li class="tag-item"><a href="#" class="tag-link">Organics</a></li>
-                                    <li class="tag-item"><a href="#" class="tag-link">Dried Organic</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </aside>
             </div>
         </div>
     </div>
+    <script>
+        function subcat(id){
+console.log(id);
+window.location = '/product/' + id;
+        }
+    </script>
 @endsection

@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index')->name('allproduct');
 Route::get('/login', 'LoginController@index')->name('home');
 Route::get('/register', 'RegisterController@index')->name('register');;
 Route::get('getsubcat/{id}','HomeController@getsubcat')->name('getsubcat.ajax');
+Route::get('subcategory/{id}','SubcategoryController@subcategory')->name('subcategory');
 Route::get('product/{id}','HomeController@show')->name('product');
 Route::get('product','ProductController@index')->name('product.index');
 Route::get('variant/{id}','ProductController@show')->name('variant');
