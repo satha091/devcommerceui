@@ -262,7 +262,7 @@
                                     <div class="contain-product layout-default">
                                         <div class="product-thumb">
                                             <a style="cursor: pointer" onclick="subcat({{$subcat['id']}})" class="link-to-product">
-                                                <img src="{{ isset($subcat['Assets']['data'][0]['links']) ? $subcat['Assets']['data'][0]['links']['full'].'?width=400&height=400' : asset('img/no-image.gif')  }}"   class="product-thumnail">
+                                                <img src="{{ isset($subcat['Assets']['data'][0]['links']) ? $subcat['Assets']['data'][0]['links']['full'] : asset('img/no-image.gif')  }}"  style="width: 400px;height:400px"  class="product-thumnail">
                                             </a>
                                         </div>
                                         <div class="info">
